@@ -1,0 +1,17 @@
+log
+target
+.settings
+.classpath
+.project
+*~
+/.git
+.idea
+bin
+build
+.gradle
+.idea
+*.iml
+/arvix-ober.mv.db
+/arvix-ober.trace.db
+.DS_Store
+gradleRun.sh

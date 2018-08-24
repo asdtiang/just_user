@@ -1,0 +1,59 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.asdtiang.ju'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-mail')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-webflux')
+	compile('org.springframework.session:spring-session-data-redis')
+	compile("com.alibaba:fastjson:1.2.47")
+	// https://mvnrepository.com/artifact/org.springframework.session/spring-session-core
+	compile group: 'org.springframework.session', name: 'spring-session-core', version: '2.0.3.RELEASE'
+	
+	
+	compile("com.alibaba:druid:1.1.10")
+	//apidoc
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.8.0'
+	compile fileTree(dir: 'libs',include: '*.jar')
+	compile("net.sourceforge.nekohtml:nekohtml:1.9.22")
+	
+	runtime('org.springframework.boot:spring-boot-devtools')
+	runtime('com.h2database:h2:1.4.197')
+	runtime('mysql:mysql-connector-java:5.1.46')
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('io.projectreactor:reactor-test')
+	testCompile('org.springframework.security:spring-security-test')
+}
